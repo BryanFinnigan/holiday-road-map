@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 export const siteConfig = {
   name: "Holiday Road Map",
   tagline: "Plan the season. Find the gifts. Enjoy the road.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://holidayroadmap.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://holiday-road-map.vercel.app",
   description:
-    "Holiday Road Map helps people plan Christmas with gift matching, printables, local holiday guides, wrapping tutorials, and practical seasonal planning."
+    "Holiday Road Map helps people plan a less stressful, more joyful Christmas with GiftMatch, gift guides, free printable Road Map Pages, MerryMap local guides, WrapLab tutorials, and a future premium planner."
 };
 
 type SeoArgs = {
