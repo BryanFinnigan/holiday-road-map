@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Hero from "@/components/Hero";
+import NewsletterSignup from "@/components/NewsletterSignup";
 import SectionHeader from "@/components/SectionHeader";
+import StatusBadge from "@/components/StatusBadge";
+import { wrappingTutorials } from "@/lib/wrappingTutorials";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
@@ -10,43 +13,43 @@ export const metadata: Metadata = createMetadata({
   path: "/guidebook/wrapping"
 });
 
-const tutorials = [
-  "How to Wrap a Box Cleanly",
-  "How to Wrap a Mug Without Making It Awkward",
-  "How to Wrap a Bottle for Christmas",
-  "How to Wrap a Soft Gift Without a Box",
-  "How to Make a Simple Bow Look Expensive"
-];
-
 export default function WrappingPage() {
   return (
     <>
       <Hero
         eyebrow="WrapLab"
         title="Simple wrapping tutorials for gifts that do not behave."
-        description="WrapLab turns common wrapping problems into calm, repeatable steps: neat corners, awkward shapes, ribbon choices, and quick polish when time is short."
+        description="WrapLab turns common wrapping problems into calm, repeatable steps: neat corners, awkward shapes, ribbon choices, supply planning, and quick polish when time is short."
         primaryCta={{ label: "See tutorials", href: "#tutorials" }}
-        secondaryCta={{ label: "Print planning pages", href: "/printables" }}
+        secondaryCta={{ label: "Print wrapping checklist", href: "/printables/wrapping-supply-checklist" }}
       />
       <section id="tutorials" className="section container">
         <SectionHeader
           eyebrow="Tutorial roadmap"
           title="Start with the shapes people actually wrap."
-          description="These tutorial pages can later include photos, short videos, printable checklists, product suggestions, and supply lists."
+          description="Each tutorial can support supplies, step-by-step instructions, mistakes to avoid, related printables, and future affiliate links for paper, tape, bows, ribbon, tags, bags, boxes, scissors, and storage."
         />
         <div className="tutorial-grid">
-          {tutorials.map((tutorial) => (
-            <article className="tutorial-card" key={tutorial}>
+          {wrappingTutorials.map((tutorial) => (
+            <article className="tutorial-card" key={tutorial.slug}>
               <span aria-hidden="true">〰</span>
-              <h2>{tutorial}</h2>
-              <p>Coming article: supplies, step-by-step instructions, common mistakes, and a cleaner finishing tip.</p>
+              <div className="status-row">
+                {tutorial.statuses.slice(0, 2).map((status) => <StatusBadge key={status} status={status} />)}
+              </div>
+              <h2>{tutorial.title}</h2>
+              <p>{tutorial.description}</p>
+              <Link href={tutorial.href}>Open tutorial →</Link>
             </article>
           ))}
         </div>
         <div className="inline-cta">
-          <p>Pair your wrapping plan with a gift tracker.</p>
-          <Link className="button secondary" href="/printables">View Road Map Pages</Link>
+          <p>Pair your wrapping plan with a supply checklist and gift tracker.</p>
+          <Link className="button secondary" href="/printables/wrapping-supply-checklist">View wrapping checklist</Link>
+          <Link className="button text-link" href="/printables/gift-tracker">Open gift tracker</Link>
         </div>
+      </section>
+      <section className="section container">
+        <NewsletterSignup context="wraplab" />
       </section>
     </>
   );

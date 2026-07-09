@@ -1,0 +1,134 @@
+.status-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.page-status-row {
+  margin-bottom: 1rem;
+}
+
+.status-badge {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  padding: 0.28rem 0.55rem;
+  color: var(--color-evergreen-road);
+  background: rgba(215, 227, 209, 0.82);
+  border: 1px solid rgba(23, 63, 53, 0.12);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.status-featured,
+.status-high-priority-revenue {
+  color: var(--color-pine-shadow);
+  background: var(--color-route-gold);
+}
+
+.status-coming-soon,
+.status-needs-verification,
+.status-sample {
+  color: var(--color-cranberry-mile);
+  background: rgba(158, 42, 43, 0.09);
+  border-color: rgba(158, 42, 43, 0.18);
+}
+
+.link-placeholder {
+  margin-top: auto;
+  padding: 0.8rem 0.9rem;
+  color: var(--color-mile-marker-gray);
+  background: rgba(215, 227, 209, 0.42);
+  border: 1px dashed rgba(23, 63, 53, 0.24);
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.affiliate-product-card,
+.roadmap-page-card,
+.guide-card {
+  min-height: 100%;
+}
+
+.card-buttons {
+  margin-top: auto;
+}
+
+.related-guides {
+  display: grid;
+  gap: 1rem;
+}
+
+.related-guides > h2 {
+  font-size: clamp(1.55rem, 3vw, 2.4rem);
+}
+
+.guide-meta-grid ul,
+.tutorial-card ul,
+.local-section-card ul {
+  padding-left: 1.1rem;
+  margin: 0;
+  color: var(--color-mile-marker-gray);
+}
+
+.guide-meta-grid li + li {
+  margin-top: 0.35rem;
+}
+
+.large-tag-list {
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.large-tag-list span {
+  padding: 0.55rem 0.8rem;
+  font-size: 0.88rem;
+}
+
+.mini-route-list {
+  margin-top: 1rem;
+}
+
+.market-card p {
+  color: var(--color-mile-marker-gray);
+}
+
+.market-card .status-badge {
+  display: inline-flex;
+  color: var(--color-evergreen-road);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+}
+
+.tutorial-card a {
+  width: fit-content;
+  margin-top: auto;
+  font-weight: 800;
+}
+
+.roadmap-page-card .button-row,
+.guide-card .tag-list,
+.affiliate-product-card .tag-list {
+  margin-top: auto;
+}
+
+.results-header p:not(.eyebrow) {
+  color: var(--color-mile-marker-gray);
+}
+
+.newsletter-form button {
+  white-space: normal;
+}
+
+@media (min-width: 1040px) {
+  .guide-meta-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

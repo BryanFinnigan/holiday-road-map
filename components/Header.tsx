@@ -2,10 +2,11 @@ import Link from "next/link";
 
 const navItems = [
   { href: "/giftmatch", label: "GiftMatch" },
-  { href: "/guidebook", label: "Guidebook" },
+  { href: "/gifts", label: "Gift Guides" },
   { href: "/printables", label: "Printables" },
   { href: "/planner", label: "Planner" },
-  { href: "/merrymap", label: "MerryMap" }
+  { href: "/merrymap", label: "MerryMap" },
+  { href: "/guidebook/wrapping", label: "WrapLab" }
 ];
 
 export default function Header() {
