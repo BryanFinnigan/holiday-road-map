@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { siteConfig } from "@/lib/seo";
 import "./globals.css";
+import "./platform.css";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
