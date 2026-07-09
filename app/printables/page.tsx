@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import RoadMapPageCard from "@/components/RoadMapPageCard";
 import SectionHeader from "@/components/SectionHeader";
-import { printableLinks } from "@/data/printableLinks";
+import { plannerPages } from "@/lib/plannerPages";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
-  title: "Road Map Pages Free Christmas Printables",
-  description: "Download starter Christmas planning printables including a gift tracker, holiday budget planner, December calendar, shipping tracker, and meal planner.",
+  title: "Road Map Pages Free Holiday Calendar Library",
+  description: "Preview free Holiday Road Map printable planner pages including a gift tracker, holiday budget planner, December calendar, shipping tracker, meal planner, and wrapping checklist.",
   path: "/printables"
 });
 
@@ -17,36 +18,35 @@ export default function PrintablesPage() {
     <>
       <Hero
         eyebrow="Road Map Pages"
-        title="Free printable pages for a more organized holiday season."
-        description="Road Map Pages are simple, useful planning sheets for the tasks that make Christmas feel scattered: gifts, budgets, dates, shipping, meals, and last-minute reminders."
-        primaryCta={{ label: "Download the starter pack", href: "#starter-pack" }}
+        title="Road Map Pages: Free Holiday Calendar Library"
+        description="Preview practical holiday planning pages for gifts, budgets, calendars, shipping, meals, cards, wrapping, Christmas week, and the after-Christmas reset. Files are clearly marked until real SVG/PDF downloads are added."
+        primaryCta={{ label: "Preview the pages", href: "#page-library" }}
         secondaryCta={{ label: "See the planner concept", href: "/planner" }}
       />
-      <section className="section container" id="starter-pack">
+      <section className="section container" id="page-library">
         <SectionHeader
-          eyebrow="Free printable cards"
-          title="Build the starter pack around practical pages."
-          description="The download links are placeholders for now. Add real PDFs or vector files when the first printable set is designed."
+          eyebrow="Free printable library"
+          title="Choose the page you need before downloading."
+          description="Each page is structured as an individual download target so the site can collect email interest, link naturally to the premium planner, and avoid fake download links while files are still being designed."
         />
         <div className="feature-grid">
-          {printableLinks.map((printable) => (
-            <article className="feature-card" key={printable.title}>
-              <div className="feature-icon" aria-hidden="true">▦</div>
-              <p className="card-label">{printable.status}</p>
-              <h2>{printable.title}</h2>
-              <p>{printable.description}</p>
-              {/* Future downloadable file link goes here. */}
-              <a href="#future-download" aria-label={`Download placeholder for ${printable.title}`}>Download placeholder →</a>
-            </article>
-          ))}
+          {plannerPages.map((page) => <RoadMapPageCard key={page.slug} page={page} />)}
         </div>
         <div className="inline-cta">
-          <p>Want the first bundle when it is ready?</p>
-          <Link className="button primary" href="#road-map-letter-heading">Join The Road Map Letter</Link>
+          <p>Starter bundle coming soon: Gift Tracker, Budget Planner, December Calendar, Shipping Tracker, and Meal Planner.</p>
+          <Link className="button primary" href="#road-map-letter-heading">Sign up for our newsletter</Link>
         </div>
       </section>
+      <section className="section container compact-section">
+        <SectionHeader
+          eyebrow="Planner upgrade path"
+          title="Free pages now, complete planner later."
+          description="Road Map Pages are the lead magnet. The Holiday Road Map Planner is the future paid system that turns the same planning logic into a September 1 through January 15 product."
+        />
+        <Link className="button secondary" href="/planner">Preview The Holiday Road Map Planner</Link>
+      </section>
       <section className="section container">
-        <NewsletterSignup />
+        <NewsletterSignup context="printables" />
       </section>
     </>
   );
