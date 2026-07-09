@@ -22,6 +22,8 @@ const staticRoutes = [
   "/merrymap",
   "/christmas-near-me",
   "/christmas-near-me/michigan",
+  "/christmas-near-me/illinois",
+  "/christmas-near-me/ohio",
   "/newsletter"
 ];
 
